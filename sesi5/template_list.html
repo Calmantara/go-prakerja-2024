@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prakerja</title>
+  </head>
+  <body>
+    <div>
+      <ul>
+        {{range $value := .}}
+        <li>ID: {{$value.ID}}, Username: {{$value.Username}}</li>
+        {{end}}
+      </ul>
+    </div>
+  </body>
+</html>
