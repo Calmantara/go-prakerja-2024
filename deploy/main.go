@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/postgres"
@@ -22,7 +24,14 @@ func main() {
 		)
 	})
 	// init db
-	dsn := "host=localhost user=postgres password=mysecretpassword dbname=postgres port=35432 sslmode=disable TimeZone=Asia/Jakarta"
+	host := os.Getenv("POSTGRES_HOST")
+	user := os.Getenv("POSTGRES_USER")
+	password := os.Getenv("POSTGRES_PASSWORD")
+	dbname := os.Getenv("POSTGRES_DBNAME")
+	port := os.Getenv("POSTGRES_PORT")
+	dsn := fmt.Sprintf("host=%v user=%v password=%v dbname=%v port=%v sslmode=disable TimeZone=Asia/Jakarta",
+		host, user, password, dbname, port,
+	)
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal(err)
