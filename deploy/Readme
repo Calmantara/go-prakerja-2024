@@ -1,0 +1,16 @@
+generate mock
+
+```
+mockery --dir repository/user --name UserRepo --output mocks
+```
+
+```
+mockery --all
+```
+
+melihat coverage di VSCode
+
+```
+1. cmd + shift + p / ctrl + shift + p
+2. Go: Toggle Test Coverage...
+```
