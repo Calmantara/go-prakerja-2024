@@ -77,7 +77,8 @@ func main() {
 		// Update user
 		// userGroup.PUT("/:id", userHdl.Update)
 	}
-	err = engine.Run(":8080")
+	appport := os.Getenv("PORT")
+	err = engine.Run(":" + appport)
 	if err != nil {
 		log.Fatal(err)
 	}
